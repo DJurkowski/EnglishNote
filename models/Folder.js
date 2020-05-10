@@ -1,9 +1,9 @@
 const mongoose = require('mongoose');
 
 const FolderSchema = new mongoose.Schema({
-    user: {
+    profile: {
         type: mongoose.Schema.Types.ObjectId,
-        ref: 'user'
+        ref: 'profile'
     },
     name: {
         type: String,

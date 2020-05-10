@@ -3,6 +3,8 @@ const router = express.Router();
 const auth = require('../../middleware/auth');
 const { check, validationResult } = require('express-validator');
 
+
+const Profile = require('../../models/Profile');
 const Folder = require('../../models/Folder');
 const Word = require('../../models/Word');
 
@@ -28,12 +30,15 @@ router.post('/', [
             if(isFolder) return res.status(400).json({ errors: [{msg: 'Folder with this name already exists'}]});
             
             const folderFileds = {};
-            folderFileds.user = req.user.id;
+            let profile = await Profile.findOne({ user: req.user.id });
+
+            if(!profile) return res.status(401).json({ errors: [{msg: 'Profile not found. Log in or created new account'}]});
+
+            folderFileds.profile = profile.id;
             folderFileds.name = req.body.name;
 
             let folder = new Folder(folderFileds);
-
-            // await folder.save();
+            
             const words = req.body.words;
             folderFileds.words = [];
     
@@ -58,6 +63,9 @@ router.post('/', [
             }
             folder.words = folderFileds.words;
             await folder.save();
+
+            profile.folders.push(folder);
+            await profile.save();
 
             return res.json(folder);
         }catch (err) {

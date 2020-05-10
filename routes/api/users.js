@@ -64,15 +64,10 @@ async(req, res) => {
         );
         // res.send('User registered');
 
-
     } catch (err) {
         console.error(err.message);
         res.status(500).send('Server error');
     }
-
-
-    // Rturn jsonwebtoken
-    
 
 });
 
