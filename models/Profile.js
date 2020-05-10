@@ -28,11 +28,11 @@ const ProfileSchema = new mongoose.Schema({
     githubusername: {
         type: String
     },
-    dictionary: [
+    folders: [
     {
-        word: {
+        folder: {
             type: mongoose.Schema.Types.ObjectId,
-            ref: 'word'
+            ref: 'folder'
         }
     }
     ],

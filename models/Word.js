@@ -1,6 +1,10 @@
 const mongoose = require('mongoose');
 
-const WordSchema = {
+const WordSchema = new mongoose.Schema({
+    folder: {
+        type: mongoose.Schema.Types.ObjectId,
+        ref: 'folder'
+    },
     polishword: {
         type: String
     },
@@ -10,6 +14,6 @@ const WordSchema = {
     synonyms: {
         type: [String]
     }
-}
+});
 
 module.exports = Word = mongoose.model('word', WordSchema);
