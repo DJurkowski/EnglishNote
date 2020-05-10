@@ -1,17 +1,17 @@
 const mongoose = require('mongoose');
 
 const FolderSchema = new mongoose.Schema({
-    user: {
+    profile: {
         type: mongoose.FolderSchema.Types.ObjectId,
-        ref: 'user'
+        ref: 'profile'
     },
     words: [
-    {
-        word: {
-            type: mongoose.Schema.Types.ObjectId,
-            ref: 'word'
+        {
+            word: {
+                type: mongoose.Schema.Types.ObjectId,
+                ref: 'word'
+            }
         }
-    }
     ]
 });
 

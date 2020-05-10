@@ -5,9 +5,6 @@ const ProfileSchema = new mongoose.Schema({
         type: mongoose.Schema.Types.ObjectId,
         ref: 'user'
     },
-    company: {
-        type: String
-    },
     website: {
         type: String
     },
@@ -29,12 +26,12 @@ const ProfileSchema = new mongoose.Schema({
         type: String
     },
     folders: [
-    {
-        folder: {
-            type: mongoose.Schema.Types.ObjectId,
-            ref: 'folder'
+        {
+            folder: {
+                type: mongoose.Schema.Types.ObjectId,
+                ref: 'folder'
+            }
         }
-    }
     ],
     social: {
         youtube: {
