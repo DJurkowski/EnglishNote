@@ -19,6 +19,20 @@ function handleWord(folderid, {polishword, englishword, synonyms}) {
     return {folder, polishword, englishword, synonyms};
 }
 
+// @route   GET api/folder
+// @desc    Get all folders
+// @access  Public
+router.get('/', async (req, res) => {
+    try {
+        const folders = await Folder.find().sort({ date: -1 });
+        res.json(folders);
+    } catch (err) {
+        console.error(err.message);
+        res.status(500).send('Server Error');
+    }
+});
+
+
 // @route   GET api/folder/:folder_id
 // @desc    Get folder by Id
 // @access  Public
