@@ -114,4 +114,36 @@ router.put('/:folder_id/word', auth, async (req, res) => {
     }
 });
 
+// @route   DELETE api/folder/:folder_id/word/:word_id
+// @desc    Delete word
+// @access  Private
+router.delete('/:folder_id/word/:word_id', auth, async (req, res) =>{
+
+    try{
+
+        const folder = await Folder.findById({ _id: req.params.folder_id });
+
+        console.log(folder.words);
+        
+        // Get remove index
+        const removeIndex = folder.words
+        .map(item => item.id)
+        .indexOf(req.params.word_id);
+
+        if(removeIndex === -1) return res.status(404).send('Word not found');
+        
+        folder.words.splice(removeIndex, 1);
+
+        await folder.save();
+
+        await Word.findByIdAndRemove({ _id: req.params.word_id });
+
+        res.json(folder);
+    }catch(err){
+        console.error(err.message);
+        res.status(500).send('Server Error');
+    }
+
+});
+
 module.exports = router;
