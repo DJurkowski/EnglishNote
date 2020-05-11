@@ -12,7 +12,7 @@ const FolderSchema = new mongoose.Schema({
     },
     words: [
         {
-            word: {
+            word:{
                 type: mongoose.Schema.Types.ObjectId,
                 ref: 'word'
             }

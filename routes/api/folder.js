@@ -17,7 +17,31 @@ function handleWord(folderid, {polishword, englishword, synonyms}) {
     else synonyms = "";
 
     return {folder, polishword, englishword, synonyms};
-}   
+}
+
+// @route   GET api/folder/:folder_id
+// @desc    Get folder by Id
+// @access  Public
+router.get('/:folder_id', async (req,res) => {
+
+    try {
+        // @todo - populate dla words ?!?
+        
+        let folder = await Folder.findById({ _id: req.params.folder_id });
+    
+        if(!folder) return res.status(404).send('Folder doesn\'t exist');
+
+
+        res.json(folder);
+
+
+    } catch (err) {
+        console.error(err.message);
+        res.status(500).send('Server Error');
+    }
+
+});
+
 
 // @route   POST api/folder
 // @desc    Create folder with words
