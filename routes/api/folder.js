@@ -42,7 +42,6 @@ router.get('/:folder_id', async (req,res) => {
 
 });
 
-
 // @route   POST api/folder
 // @desc    Create folder with words
 // @access  Private
