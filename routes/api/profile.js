@@ -5,6 +5,7 @@ const { check, validationResult } = require('express-validator');
 
 const Profile = require('../../models/Profile');
 const User = require('../../models/User');
+const Folder = require('../../models/Folder');
 
 // @route   GET api/profile/me
 // @desc    Get current users profile
@@ -142,7 +143,6 @@ router.delete('/', auth, async (req, res) => {
 
         // @todo - remove users folders
 
-
         // Remove profile
         await Profile.findOneAndRemove({ user: req.user.id });
         // Remove user
@@ -156,53 +156,33 @@ router.delete('/', auth, async (req, res) => {
     }
 });
 
-// @route   PUT api/profile/experience
-// @desc    Add profile experience
+// @route   DELETE api/profile/folder/:folder_id
+// @desc    Delete folder
 // @access  Private
-router.put('/experience', [auth, [
-    check('title', 'Title is required').not().isEmpty(),
-    check('company', 'Company is required').not().isEmpty(),
-    check('from', 'From date is required').not().isEmpty()
-]], async (req, res) => {
-    const errors = validationResult(req);
-    if(!errors.isEmpty()){
-        return res.status(400).json({ errors: errors.array() });
-    }
+router.delete('/folder/:folder_id', auth, async (req, res) =>{
 
-    const {
-        title,
-        company,
-        location,
-        from,
-        to,
-        current,
-        description
-    } = req.body;
+    try{
 
-    const newExp = {
-        title,
-        company,
-        location,
-        from,
-        to,
-        current,
-        description
-    };
-
-    try {
         const profile = await Profile.findOne({ user: req.user.id });
+        
+        // Get remove index
+        const removeIndex = profile.folders
+        .map(item => item.id)
+        .indexOf(req.params.folder_id);
 
-        profile.experience.unshift(newExp);
+        profile.folders.splice(removeIndex, 1);
 
         await profile.save();
 
+        await Folder.findByIdAndRemove({_id: req.params.folder_id});
+
         res.json(profile);
-    } catch (err) {
+    }catch(err){
         console.error(err.message);
         res.status(500).send('Server Error');
-        
     }
 
-}); 
+});
+
 
 module.exports = router;
