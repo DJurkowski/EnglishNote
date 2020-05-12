@@ -12,9 +12,14 @@ const FolderSchema = new mongoose.Schema({
     },
     words: [
         {
-            word:{
-                type: mongoose.Schema.Types.ObjectId,
-                ref: 'word'
+            polishword: {
+                type: String
+            },
+            englishword: {
+                type: String
+            },
+            synonyms: {
+                type: [String]
             }
         }
     ]

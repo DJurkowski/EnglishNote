@@ -6,17 +6,15 @@ const { check, validationResult } = require('express-validator');
 
 const Profile = require('../../models/Profile');
 const Folder = require('../../models/Folder');
-const Word = require('../../models/Word');
 
+function handleWord({polishword, englishword, synonyms}) {
 
-function handleWord(folderid, {polishword, englishword, synonyms}) {
-
-    const folder = folderid;
+    // const folder = folderid;
     
     if(synonyms) synonyms = synonyms.split('/').map(word => word.trim());
     else synonyms = "";
 
-    return {folder, polishword, englishword, synonyms};
+    return {polishword, englishword, synonyms};
 }
 
 // @route   GET api/folder
@@ -39,15 +37,12 @@ router.get('/', async (req, res) => {
 router.get('/:folder_id', async (req,res) => {
 
     try {
-        // @todo - populate dla words ?!?
         
         let folder = await Folder.findById({ _id: req.params.folder_id });
     
         if(!folder) return res.status(404).send('Folder doesn\'t exist');
 
-
         res.json(folder);
-
 
     } catch (err) {
         console.error(err.message);
@@ -92,21 +87,8 @@ router.post('/', [
     
             if(words) {
                 for( x of words) {
-                    // const wordFileds = {};
-                    // let {polishword, englishword, synonyms} = x.word;
-                    // if(synonyms) synonyms = synonyms.split('/').map(word => word.trim());
-                    // else synonyms = "";
 
-                    // wordFileds.folder = folder.id;
-                    // wordFileds.polishword = polishword;
-                    // wordFileds.englishword = englishword;
-                    // wordFileds.synonyms = synonyms;
-    
-                    let word = new Word(handleWord(folder.id, x.word));
-
-                    await word.save();
-
-                    folderFileds.words.push(word);
+                    folderFileds.words.push(handleWord(x.word));
                 }
             }
             folder.words = folderFileds.words;
@@ -134,11 +116,7 @@ router.put('/:folder_id/word', auth, async (req, res) => {
 
             const folder = await Folder.findById({ _id: req.params.folder_id });
 
-            let word = new Word(handleWord(folder.id, isWord));
-
-            await word.save();
-
-            folder.words.push(word);
+            folder.words.push(handleWord(isWord));
 
             await folder.save();
 
@@ -172,8 +150,6 @@ router.delete('/:folder_id/word/:word_id', auth, async (req, res) =>{
         folder.words.splice(removeIndex, 1);
 
         await folder.save();
-
-        await Word.findByIdAndRemove({ _id: req.params.word_id });
 
         res.json(folder);
     }catch(err){
