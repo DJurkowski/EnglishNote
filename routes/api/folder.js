@@ -6,11 +6,8 @@ const { check, validationResult } = require('express-validator');
 
 const Profile = require('../../models/Profile');
 const Folder = require('../../models/Folder');
-
 function handleWord({polishword, englishword, synonyms}) {
 
-    // const folder = folderid;
-    
     if(synonyms) synonyms = synonyms.split('/').map(word => word.trim());
     else synonyms = "";
 
