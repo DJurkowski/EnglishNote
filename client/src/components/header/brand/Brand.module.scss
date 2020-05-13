@@ -1,0 +1,28 @@
+@import '../../../App.module.scss';
+
+
+@mixin logo {
+    
+    color: $white;
+    font-family: $header-font;
+}
+.logo {
+    @include logo;
+    margin: 0 0 10px 0;
+    display: none;
+}
+
+.minlogo {
+    @include logo;
+    margin: auto 0;
+}
+
+@media (min-width: 410px){
+    .minlogo {
+        display: none;
+    }
+
+    .logo {
+        display: block;
+    }
+}

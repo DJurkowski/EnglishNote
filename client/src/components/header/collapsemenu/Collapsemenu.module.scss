@@ -1,0 +1,37 @@
+@import '../../../App.module.scss';
+
+.wrapper {
+    background-image: linear-gradient(90deg, rgba(98,64,153,1) 42%, rgba(208,85,170,1) 100%);
+    
+    top: 4.5rem;
+    left: 0;
+    right: 0;
+}
+
+.navLinks {
+    margin: 0;
+    padding: 0;
+    list-style-type: none;
+    font-weight: bold;
+
+    & li {
+        transition: all 300ms linear 0s;
+    }
+}
+
+.navbarItem {
+    display: block;
+    padding: 2rem 0 2rem 2rem;
+
+    font-size: 1.4rem;
+    line-height: 2;
+    color: white;
+    text-decoration: none;
+    cursor: pointer;
+    
+    &:hover {
+        color: $white;
+        background-color: $light-primary-alfa;
+    }   
+    
+}

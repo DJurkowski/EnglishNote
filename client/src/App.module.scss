@@ -1,0 +1,30 @@
+
+@import url("https://fonts.googleapis.com/css?family=Montserrat:300,500,700");
+@import url('https://fonts.googleapis.com/css2?family=Pacifico&display=swap');
+
+$primary: #845EC2;
+$pink: #D65DB1;
+$rose: #FF6F91;
+
+$white: #fff;
+
+$black: #4B4453;
+$grey: #B0A8B9;
+
+$light-grey: #D5CABD;
+$light-primary:#C493FF;
+$light-primary-alfa: hsla(267, 100%, 79%, 0.5);
+
+$primary-font: 'Montserrat', sans-serif;
+$header-font: 'Pacifico', sans-serif;
+
+
+*, *::before, *::after{
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    font-family: $primary-font;
+}
