@@ -1,5 +1,5 @@
 import React from 'react';
-import {NavLink} from 'react-router-dom';
+import {Link} from 'react-router-dom';
 import styles from './Navbar.module.scss';
 import Brand from '../brand/Brand';
 import Burgermenu from '../burgermenu/Burgermenu';
@@ -9,15 +9,15 @@ const Navbar = (props) => (
     <>
         <nav className={styles.navbar}>
             <div className={styles.container}>
-                <div className={styles.minlogo}><Brand /></div>
+                <Link className={styles.minlogo} to='/'><Brand /></Link>
                 <ul className={styles.navLinkStart}>
-                    <Brand />
+                    <Link className={styles.logo} to='/'><Brand /></Link>
                     <div style={{marginLeft: 30 + 'px'}} className={styles.navbarItem}>about</div>
                     <div style={{marginLeft: 30 + 'px'}} className={styles.navbarItem}>folder</div>
                 </ul>
                 <ul className={styles.navLinkEnd}>
-                    <div className={styles.navbarItem}>login</div>
-                    <div className={styles.special} >sing up</div>
+                    <Link className={styles.navbarItem} to='/login'>login</Link>
+                    <Link className={styles.special} to='/register'>register</Link>
                 </ul>
                 <div className={styles.burgerWrapper}>
                     <Burgermenu 

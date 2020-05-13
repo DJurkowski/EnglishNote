@@ -6,7 +6,7 @@
     z-index: 1;
     font-size: 1.4rem;
     font-weight: bold;
-
+    background: $primary;
     background-image: linear-gradient(90deg, rgba(98,64,153,1) 42%, rgba(208,85,170,1) 100%);
 }
 
@@ -24,6 +24,7 @@
     display: flex;
     flex-wrap: nowrap;
     color: $white;
+    
 
     @media (max-width: 768px){
         display: none;
@@ -44,6 +45,8 @@
 
 
 .navbarItem {
+    text-decoration: none;
+    color: inherit;
     margin: auto 0 auto 15px;
 
     &:hover {
@@ -53,6 +56,8 @@
 }
 
 .special {
+    text-decoration: none;
+    color: inherit;
     margin-left: 15px;
     padding: 11px;
     border: 4px solid $white;
@@ -67,10 +72,15 @@
 .minlogo {
     
     margin: auto 0;
+    text-decoration: none;
 
     @media (min-width: 769px){
         display: none;
     }
+}
+
+.logo {
+    text-decoration: none;
 }
 
 .burgerWrapper {

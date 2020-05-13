@@ -2,9 +2,11 @@
 @import url("https://fonts.googleapis.com/css?family=Montserrat:300,500,700");
 @import url('https://fonts.googleapis.com/css2?family=Pacifico&display=swap');
 
-$primary: #845EC2;
+$primary: #624099;
 $pink: #D65DB1;
 $rose: #FF6F91;
+$orange: #FF9671;
+$yellow: #F9F871;
 
 $white: #fff;
 
@@ -17,6 +19,11 @@ $light-primary-alfa: hsla(267, 100%, 79%, 0.5);
 
 $primary-font: 'Montserrat', sans-serif;
 $header-font: 'Pacifico', sans-serif;
+
+@mixin reset-selector {
+    margin: 0;
+    padding: 0;
+}
 
 
 *, *::before, *::after{
