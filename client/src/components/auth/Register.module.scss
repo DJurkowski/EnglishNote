@@ -1,0 +1,92 @@
+@import '../../App.module.scss';
+
+.wrapper {
+    display: flex;
+    justify-content: center;
+    padding: 50px;
+}
+
+.content {
+    border: 5px solid $white;
+    border-radius: 20px;
+    padding: 20px 20px 20px 20px;
+}
+
+.form_header {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    flex-wrap: nowrap;
+}
+
+.form_header_title {
+    padding-bottom: 10px;
+}
+
+
+.form {
+    // text-align: right;
+    width: 500px;
+}
+
+.form_group {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-items: center;
+    flex-wrap: nowrap;
+}
+
+.input {
+    
+    text-decoration: none;
+    border: 5px solid $white;
+    border-radius: 20px;
+    background: none;
+    width: 70%;
+    padding: 15px;
+    margin: 10px 0 10px 0;
+
+    color: $white;
+    font-weight: bold;
+    font-size: 18px;
+
+    &:focus {
+        border-color: $light-primary;
+        outline: none;
+    }
+}
+
+
+
+.submit {
+    float: right;
+
+    background: none;
+    border: 5px solid $white;
+    border-radius: 20px;
+    padding: 15px;
+
+    color: $white;
+    font-weight: bold;
+    font-size: 18px;
+
+    &:hover {
+        border-color: $white;
+        background: $white;
+        color: $pink;
+    }
+
+}
+
+.form_footer {
+    clear: both;
+    text-align: center;
+}
+
+::placeholder {
+    color: $light-grey;
+    font-size: 18px;
+    opacity: 0.7;
+
+}

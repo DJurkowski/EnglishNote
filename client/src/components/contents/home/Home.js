@@ -5,7 +5,7 @@ const Home = () => {
 
     return (
         <>
-            <h2 style={{margin: 0}}>Hello Friend from home page</h2>
+            <h2>Hello Friend from home page</h2>
         </>
     );
 };
