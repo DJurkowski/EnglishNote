@@ -6,6 +6,7 @@ import Header from './components/header/Header';
 import Home from './components/contents/home/Home';
 import Register from './components/auth/Register';
 import Login from './components/auth/Login';
+import Alert from './components/contents/alert/Alert';
 // Redux
 import { Provider } from 'react-redux';
 import store from './store';
@@ -15,6 +16,7 @@ const App = () => (
     <Router>
       <Header />
       <Container>    
+        <Alert />
         <Route exact path='/' component={Home} />
         <Switch>
           <Route exact path='/login' component={Login}/>

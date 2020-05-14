@@ -1,0 +1,11 @@
+@import '../../../App.module.scss';
+
+.danger {
+    width: 500px;
+    margin: 0 auto 5px auto;
+    padding: 15px;
+    text-align: center;
+    border: 5px solid $rose;
+    border-radius: 20px;
+    color: $rose;
+}
