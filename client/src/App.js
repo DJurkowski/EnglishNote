@@ -1,13 +1,17 @@
 import React from 'react';
-import {BrowserRouter as Router, Route, Switch, Redirect} from 'react-router-dom';
+import {BrowserRouter as Router, Route, Switch} from 'react-router-dom';
 import './App.css';
 import Container from './components/container/Container';
 import Header from './components/header/Header';
 import Home from './components/contents/home/Home';
 import Register from './components/auth/Register';
 import Login from './components/auth/Login';
+// Redux
+import { Provider } from 'react-redux';
+import store from './store';
 
 const App = () => (
+  <Provider store={store}>
     <Router>
       <Header />
       <Container>    
@@ -18,6 +22,7 @@ const App = () => (
         </Switch>
       </Container>
     </Router>
+  </Provider>
 );
 
 export default App;
