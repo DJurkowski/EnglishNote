@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import {BrowserRouter as Router, Route, Switch} from 'react-router-dom';
 import './App.css';
 import Container from './components/container/Container';
@@ -10,21 +10,35 @@ import Alert from './components/contents/alert/Alert';
 // Redux
 import { Provider } from 'react-redux';
 import store from './store';
+import { loadUser } from './actions/auth';
+import setAuthToken from './utils/setAuthToken';
 
-const App = () => (
-  <Provider store={store}>
-    <Router>
-      <Header />
-      <Container>    
-        <Alert />
-        <Route exact path='/' component={Home} />
-        <Switch>
-          <Route exact path='/login' component={Login}/>
-          <Route exact path='/register' component={Register}/>
-        </Switch>
-      </Container>
-    </Router>
-  </Provider>
-);
+if(localStorage.token) {
+  setAuthToken(localStorage.token);
+}
+
+
+const App = () => {
+  
+  useEffect(()=> {
+    store.dispatch(loadUser());
+  }, []);
+
+  return(
+    <Provider store={store}>
+      <Router>
+        <Header />
+        <Container>    
+          <Alert />
+          <Route exact path='/' component={Home} />
+          <Switch>
+            <Route exact path='/login' component={Login}/>
+            <Route exact path='/register' component={Register}/>
+          </Switch>
+        </Container>
+      </Router>
+    </Provider>
+    );
+};
 
 export default App;
