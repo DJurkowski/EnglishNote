@@ -10,7 +10,10 @@ import PropTypes from 'prop-types';
 
 const Navbar = ({navbarState, handleNavbar, auth: {isAuthenticated, loading}, logout }) => {
     const authLinks = (
-        <Link onClick={logout} className={styles.special} to='/'>logout</Link>
+        <>
+            <Link className={styles.navbarItem} to='/dashboard'>dashboard</Link>
+            <Link onClick={logout} className={styles.special} to='/'>logout</Link>
+        </>
     );
 
     const guestLinks = (
