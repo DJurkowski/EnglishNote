@@ -23,31 +23,32 @@ const Dashboard = ({ getCurrentProfile, auth: {user}, profile: {profile, loading
                 <p>{profile.status && ("Status: " + profile.status)}</p>
                 <p>{profile.location && ("Location: " + profile.location)}</p>
                 <p>{profile.date && ("Join date: " + profile.date.split('T')[0])}</p>
+                <Link className={styles.button} to='/edit-profile'>edit</Link>
             </div>
             <div className={styles.box}><i className="fab fa-github"></i> {profile.githubusername}</div>
             <div className={styles.box}><i className="fas fa-globe"></i><a href={user.website} rel="noopener noreferrer" target="_blank"> website</a></div>
-             
-            {(profile.social.linkedin !== null ? 
+
+            {(profile.social.linkedin !== '' ? 
                 <div className={styles.box}><i className="fab fa-linkedin-in"></i> {profile.social.linkedin}</div> 
                 // eslint-disable-next-line
                 : <div className={styles.box, styles.hide}></div>
             )}
-            {((profile.social.youtube !== null || profile.social.youtube !== "")  ? 
+            {((profile.social.youtube !== '')  ? 
                 <div className={styles.box}><i className="fab fa-youtube"></i> {profile.social.youtube}</div> 
                 // eslint-disable-next-line
                 : <div className={styles.box, styles.hide}></div>
             )}
-            {((profile.social.twitter !== null || profile.social.twitter !== "")? 
+            {(( profile.social.twitter !== '')? 
                 <div className={styles.box}><i className="fab fa-twitter"></i> {profile.social.twitter}</div> 
                 // eslint-disable-next-line
                 : <div className={styles.box, styles.hide}></div>
             )}
-            {((profile.social.instagram !== null || profile.social.instagram !== "") ? 
+            {((profile.social.instagram !== '') ? 
                 <div className={styles.box}><i className="fab fa-instagram"></i> {profile.social.instagram}</div> 
                 // eslint-disable-next-line
                 : <div className={styles.box, styles.hide}></div>
             )}
-            {((profile.social.facebook !== null || profile.social.facebook !== "")? 
+            {((profile.social.facebook !== '')? 
                 <div className={styles.box}><i className="fab fa-facebook"></i> {profile.social.facebook}</div> 
                 // eslint-disable-next-line
                 : <div className={styles.box, styles.hide}></div>

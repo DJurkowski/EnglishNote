@@ -76,10 +76,15 @@ router.post('/', [
     else profileFields.folders = {};
     profileFields.social = {};
     if(youtube) profileFields.social.youtube = youtube;
+    else profileFields.social.youtube = '';
     if(twitter) profileFields.social.twitter = twitter;
+    else profileFields.social.twitter = '';
     if(facebook) profileFields.social.facebook = facebook;
+    else profileFields.social.facebook = '';
     if(linkedin) profileFields.social.linkedin = linkedin;
+    else profileFields.social.linkedin = '';
     if(instagram) profileFields.social.instagram = instagram;
+    else profileFields.social.instagram = '';
 
     try {
         let profile = await Profile.findOne({user: req.user.id})

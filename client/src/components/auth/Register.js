@@ -46,7 +46,7 @@ const Register = ({ setAlert, register, isAuthenticated }) => {
                             type='text'
                             placeholder='name'
                             name='name'
-                            valuue={name}
+                            value={name}
                             onChange={e => onChange(e)}
                             required
                         />
