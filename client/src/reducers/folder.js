@@ -1,4 +1,4 @@
-import { ADD_FOLDER, FOLDER_ERROR } from "../actions/types";
+import { ADD_FOLDER, FOLDER_ERROR, GET_ALL_FOLDERS } from "../actions/types";
 
 const initialState = {
     folder: null,
@@ -11,6 +11,12 @@ export default function(state = initialState, action) {
     const { type, payload } = action;
 
     switch(type) {
+        case GET_ALL_FOLDERS:
+            return {
+                ...state,
+                folder: payload,
+                loading: false
+            };
         case ADD_FOLDER:
             return {
                 ...state,
