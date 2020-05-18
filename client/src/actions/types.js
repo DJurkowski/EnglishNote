@@ -13,3 +13,4 @@ export const PROFILE_ERROR = 'PROFILE_ERROR';
 export const ADD_FOLDER = 'ADD_FOLDER';
 export const FOLDER_ERROR = 'FOLDER_ERROR';
 export const GET_ALL_FOLDERS = 'GET_ALL_FOLDERS';
+export const GET_MY_FOLDERS = 'GET_MY_FOLDERS';

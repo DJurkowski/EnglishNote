@@ -9,7 +9,7 @@
 
 }
 .danger {
-    
+    @include box;
     border: 5px solid $rose;
     color: $rose;
 }

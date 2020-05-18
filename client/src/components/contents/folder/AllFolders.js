@@ -10,13 +10,14 @@ const AllFolders = ({ getFolders, folder: {folder, loading} }) => {
 
     useEffect(()=> {
         getFolders();
+        // eslint-disable-next-line 
     }, []);
 
     const folders_array = folder && folder.map(item => (
         <div key={item._id} className={styles.box}>
             <div className={styles.content_item}><h2>Name: {item.name}</h2></div>
             <div className={styles.content_item}><p >words number: {item.words.length}</p></div>
-            <div className={styles.content_item}><Link className={styles.button} to={`/api/folder/${item._id}`}>View more</Link></div>
+            <div className={styles.content_item}><Link className={styles.button} to={`/folder/${item._id}`}>View more</Link></div>
         </div>
     ));
 

@@ -77,7 +77,7 @@ const CreateFolder = ({ addFolder, history }) => {
                     {words.map(word => {
                         return (
                             <>
-                                <div key={word.id} className={styles.form_group_item}>
+                                <div key={word._id} className={styles.form_group_item}>
                                     <div
                                         className={styles.form_group_item_delete}
                                         onClick={() => handleDeleteWord(word.id)}

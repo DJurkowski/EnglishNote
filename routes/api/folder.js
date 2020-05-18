@@ -26,6 +26,30 @@ router.get('/', async (req, res) => {
     }
 });
 
+// @route   GET api/folder/my
+// @desc    Get my folders
+// @access  Private
+router.get('/my', auth, async (req, res) => {
+    try {
+        const profile = await  Profile.findOne({ user: req.user.id });
+        if(!profile) {
+            return res.status(404).json({ errors: [{msg: 'Profile not found. Please create profile'}]});
+        }
+        if(profile.folders){
+            Promise.all( profile.folders.map( async item => await Folder.findById(item._id)))
+            .then((values) => {
+                res.json(values);
+            });
+        }else {
+            return res.status(404).json({ errors: [{msg: 'Folders not found. Please create folder'}]});
+        }
+
+    } catch (err) {
+        console.error(err.message);
+        res.status(500).send('Server Error');
+    }
+});
+
 
 // @route   GET api/folder/:folder_id
 // @desc    Get folder by Id
@@ -36,7 +60,7 @@ router.get('/:folder_id', async (req,res) => {
         
         let folder = await Folder.findById({ _id: req.params.folder_id });
     
-        if(!folder) return res.status(404).send('Folder doesn\'t exist');
+        if(!folder) return res.status(404).json({ errors: [{msg: 'Folder doesn\'t exist'}]});
 
         res.json(folder);
 
