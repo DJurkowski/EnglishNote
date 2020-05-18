@@ -10,6 +10,9 @@ import Alert from './components/contents/alert/Alert';
 import Dashboard from './components/contents/daszboard/Dashboard';
 import CreateProfile from './components/contents/profile/CreateProfile';
 import EditProfile from './components/contents/profile/EditProfile';
+import MyFolders from './components/contents/folder/MyFolders';
+import AllFolders from './components/contents/folder/AllFolders';
+import CreateFolder from './components/contents/folder/CreateFolder';
 import PrivateRoute from './components/routing/PrivateRoute';
 // Redux
 import { Provider } from 'react-redux';
@@ -40,6 +43,9 @@ const App = () => {
             <PrivateRoute exact path='/dashboard' component={Dashboard}/>
             <PrivateRoute exact path='/create-profile' component={CreateProfile}/>
             <PrivateRoute exact path='/edit-profile' component={EditProfile}/>
+            <PrivateRoute exact path='/myfolders' component={MyFolders}/>
+            <PrivateRoute exact path='/allfolders' component={AllFolders}/>
+            <PrivateRoute exact path='/create-folder' component={CreateFolder}/>
           </Switch>
         </Container>
       </Router>

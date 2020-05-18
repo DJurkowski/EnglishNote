@@ -10,6 +10,7 @@ const Dashboard = ({ getCurrentProfile, auth: {user}, profile: {profile, loading
 
     useEffect(() => {
         getCurrentProfile();
+    // eslint-disable-next-line 
     }, []);
 
     const content = (

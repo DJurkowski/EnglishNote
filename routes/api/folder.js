@@ -2,10 +2,9 @@ const express = require('express');
 const router = express.Router();
 const auth = require('../../middleware/auth');
 const { check, validationResult } = require('express-validator');
-
-
 const Profile = require('../../models/Profile');
 const Folder = require('../../models/Folder');
+
 function handleWord({polishword, englishword, synonyms}) {
 
     if(synonyms) synonyms = synonyms.split('/').map(word => word.trim());
@@ -72,7 +71,7 @@ router.post('/', [
             const folderFileds = {};
             let profile = await Profile.findOne({ user: req.user.id });
 
-            if(!profile) return res.status(401).json({ errors: [{msg: 'Profile not found. Log in or created new account'}]});
+            if(!profile) return res.status(401).json({ errors: [{msg: 'Profile not found. Log in or created profile'}]});
 
             folderFileds.profile = profile.id;
             folderFileds.name = req.body.name;
@@ -85,7 +84,7 @@ router.post('/', [
             if(words) {
                 for( x of words) {
 
-                    folderFileds.words.push(handleWord(x.word));
+                    folderFileds.words.push(handleWord(x));
                 }
             }
             folder.words = folderFileds.words;
