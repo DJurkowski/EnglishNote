@@ -2,6 +2,7 @@ import React, { useEffect } from 'react';
 import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
+import Moment from 'react-moment';
 import Spinner from '../spinner/Spinner';
 import { getCurrentProfile } from '../../../actions/profile';
 import styles from './Dashboard.module.scss';
@@ -23,7 +24,8 @@ const Dashboard = ({ getCurrentProfile, auth: {user}, profile: {profile, loading
                 <h2>Username: { user.name }</h2>
                 <p>{profile.status && ("Status: " + profile.status)}</p>
                 <p>{profile.location && ("Location: " + profile.location)}</p>
-                <p>{profile.date && ("Join date: " + profile.date.split('T')[0])}</p>
+                {/* <p>{profile.date && ("Join date: " + profile.date.split('T')[0])}</p> */}
+                <p>Join date: <Moment format='DD/MM/YYYY'>{profile.date}</Moment></p>
                 <Link className={styles.button} to='/edit-profile'>edit</Link>
             </div>
             <div className={styles.box}><i className="fab fa-github"></i> {profile.githubusername}</div>
