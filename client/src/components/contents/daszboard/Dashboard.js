@@ -4,15 +4,20 @@ import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 import Moment from 'react-moment';
 import Spinner from '../spinner/Spinner';
-import { getCurrentProfile } from '../../../actions/profile';
+import { getCurrentProfile, deleteUser } from '../../../actions/profile';
 import styles from './Dashboard.module.scss';
 
-const Dashboard = ({ getCurrentProfile, auth: {user}, profile: {profile, loading} }) => {
+const Dashboard = ({ getCurrentProfile, deleteUser, auth: {user}, profile: {profile, loading} }) => {
 
     useEffect(() => {
         getCurrentProfile();
     // eslint-disable-next-line 
     }, []);
+
+    const handleDeleteButton = () => {
+        deleteUser();
+    };
+
 
     const content = (
         (profile && user) ?
@@ -27,6 +32,7 @@ const Dashboard = ({ getCurrentProfile, auth: {user}, profile: {profile, loading
                 {/* <p>{profile.date && ("Join date: " + profile.date.split('T')[0])}</p> */}
                 <p>Join date: <Moment format='DD/MM/YYYY'>{profile.date}</Moment></p>
                 <Link className={styles.button} to='/edit-profile'>edit</Link>
+                <button className={styles.button} onClick={handleDeleteButton}>delete account</button>
             </div>
             <div className={styles.box}><i className="fab fa-github"></i> {profile.githubusername}</div>
             <div className={styles.box}><i className="fas fa-globe"></i><a href={user.website} rel="noopener noreferrer" target="_blank"> website</a></div>
@@ -73,11 +79,11 @@ const Dashboard = ({ getCurrentProfile, auth: {user}, profile: {profile, loading
            {loading && profile === null ? (<Spinner />) : (content)} 
         </div>
     );
-
 };
 
 Dashboard.propTypes = {
     getCurrentProfile: PropTypes.func.isRequired,
+    deleteUser: PropTypes.func.isRequired,
     auth: PropTypes.object.isRequired,
     profile: PropTypes.object.isRequired,
 };
@@ -87,4 +93,4 @@ const mapStateToProps = state => ({
     profile: state.profile
 });
 
-export default connect(mapStateToProps, { getCurrentProfile })(Dashboard);
+export default connect(mapStateToProps, { getCurrentProfile, deleteUser })(Dashboard);

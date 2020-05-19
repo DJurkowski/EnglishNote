@@ -1,7 +1,7 @@
 import axios from 'axios';
 import { setAlert } from './alert';
 
-import { GET_PROFILE, PROFILE_ERROR} from './types';
+import { GET_PROFILE, PROFILE_ERROR, DELETE_USER, CLEAR_PROFILE } from './types';
 
 // Get current users profile
 export const getCurrentProfile = () => async dispatch => {
@@ -55,4 +55,25 @@ export const createProfile = (formData, history, edit = false) => async dispatch
             payload: { msg: err.response.statusText, status: err.response.status }
         });
     }
-}
+};
+
+// Delete user account and profile with folders
+export const deleteUser = () => async dispatch => {
+    if(window.confirm('Are you sure? This can NOT be undone!')){
+        try {
+
+            await axios.delete('/api/profile');
+            dispatch({ type: CLEAR_PROFILE });
+            dispatch({ type: DELETE_USER});
+
+            dispatch(setAlert('Your account has been permanantly deleted', 'success'));
+            
+        } catch (err) {
+            dispatch({
+                type: PROFILE_ERROR,
+                payload: { msg: err.response.statusText, status: err.response.status }
+            });
+            
+        }
+    }
+};

@@ -73,7 +73,7 @@ router.post('/', [
     }
 
     if(folders) profileFields.folders = folders;
-    else profileFields.folders = {};
+    // else profileFields.folders = {};
     profileFields.social = {};
     if(youtube) profileFields.social.youtube = youtube;
     else profileFields.social.youtube = '';
