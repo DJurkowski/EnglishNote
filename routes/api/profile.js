@@ -148,8 +148,12 @@ router.get('/user/:user_id', async (req, res) => {
 router.delete('/', auth, async (req, res) => {
     try {
 
-        // @todo - remove users folders
+        let profile = await Profile.findOne({user: req.user.id})
 
+        if(!profile) return res.status(400).json({ msg: 'Profile not found'});
+
+        // Remove users folders
+        await Folder.deleteMany({ profile: profile._id });
         // Remove profile
         await Profile.findOneAndRemove({ user: req.user.id });
         // Remove user
