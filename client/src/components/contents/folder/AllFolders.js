@@ -12,7 +12,7 @@ const AllFolders = ({ getFolders, folder: {folder, loading} }) => {
         getFolders();
     }, [getFolders]);
 
-    const folders_array = folder && folder.map(item => (
+    const folders_array = folder && folder.length > 0 && folder.map(item => (
         <div key={item._id} className={styles.box}>
             <div className={styles.content_item}><h2>Name: {item.name}</h2></div>
             <div className={styles.content_item}><p >words number: {item.words.length}</p></div>

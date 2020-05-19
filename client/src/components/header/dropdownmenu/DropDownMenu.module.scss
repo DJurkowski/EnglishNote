@@ -1,0 +1,38 @@
+.button {
+    color: $white;
+    font-family: $primary-font;
+    font-size: 1.4rem;
+    font-weight: bold;
+    border: none;
+    background: none;
+    cursor: pointer;
+    outline: none;
+
+    &:hover {
+        color: $light-primary;
+    }
+
+}
+
+.dropdown_menu {
+    @include reset-selector;
+    display: block;
+    position: absolute;
+    list-style-type: none;
+    background: $light-primary;
+    color: $white;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+}
+
+.dropdown_menu_item {
+    width: 100%;
+    padding: 10px 20px 10px 20px;
+    display: block;
+    text-decoration: none;
+    color: inherit;
+
+    &:hover {
+        background: $pink;
+    }
+}

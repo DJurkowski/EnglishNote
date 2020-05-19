@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { logout } from '../../../actions/auth';
@@ -6,26 +6,16 @@ import styles from './Navbar.module.scss';
 import Brand from '../brand/Brand';
 import Burgermenu from '../burgermenu/Burgermenu';
 import CollapseMenu from '../collapsemenu/Collapsemenu';
+import DropDownMenu from '../dropdownmenu/DropDownMenu';
 import PropTypes from 'prop-types';
 
 const Navbar = ({navbarState, handleNavbar, auth: {isAuthenticated, loading}, logout }) => {
 
-    const [displayDropDownMenu, setDropDownMenu] = useState(false);
-
-    const isDropDownMenu = () => setDropDownMenu(!displayDropDownMenu);
+    
 
     const authLinks = (
         <>
-            <div className={styles.navbarItem}>
-            <button onClick={isDropDownMenu} className={styles.button}>folders <i className="fa fa-caret-down"></i></button>
-            {displayDropDownMenu &&
-            <ul className={styles.dropdown_menu}>
-                <li><Link className={styles.dropdown_menu_item} to='/myfolders'>my folders</Link></li>
-                <li><Link className={styles.dropdown_menu_item} to='/allfolders'>all folders</Link></li>
-                <li><Link className={styles.dropdown_menu_item} to='/create-folder'>add folder</Link></li>
-            </ul>
-            }
-            </div>
+            <DropDownMenu />
             <Link className={styles.navbarItem} to='/dashboard'>dashboard</Link>
             <Link onClick={logout} className={styles.special} to='/'>logout</Link>
         </>
