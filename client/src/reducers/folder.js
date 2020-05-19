@@ -1,4 +1,5 @@
-import { ADD_FOLDER, FOLDER_ERROR, GET_ALL_FOLDERS, GET_MY_FOLDERS, DELETE_FOLDER } from "../actions/types";
+import { ADD_FOLDER, FOLDER_ERROR, GET_ALL_FOLDERS, GET_MY_FOLDERS, 
+    DELETE_FOLDER, GET_FOLDER } from "../actions/types";
 
 const initialState = {
     folder: null,
@@ -13,6 +14,7 @@ export default function(state = initialState, action) {
     switch(type) {
         case GET_ALL_FOLDERS:
         case GET_MY_FOLDERS:
+        case GET_FOLDER:
             return {
                 ...state,
                 folder: payload,

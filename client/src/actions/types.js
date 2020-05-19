@@ -15,3 +15,4 @@ export const DELETE_FOLDER = 'DELETE_FOLDER';
 export const FOLDER_ERROR = 'FOLDER_ERROR';
 export const GET_ALL_FOLDERS = 'GET_ALL_FOLDERS';
 export const GET_MY_FOLDERS = 'GET_MY_FOLDERS';
+export const GET_FOLDER = 'GET_FOLDER';

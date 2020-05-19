@@ -35,4 +35,8 @@ body {
     padding: 0;
     font-family: $primary-font;
     color: $white;
+
+    background: rgba(98,64,153,.98);
+    background: linear-gradient(90deg, rgba(98,64,153,.98) 42%, rgba(208,85,170,1) 100%),
+                linear-gradient(to top, rgba(196, 147, 255, 1) 42%, rgba(249, 156, 178, 1) 100%);
 }

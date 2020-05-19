@@ -1,6 +1,5 @@
 import React, { useEffect } from 'react';
 import {BrowserRouter as Router, Route, Switch} from 'react-router-dom';
-import './App.css';
 import Container from './components/container/Container';
 import Header from './components/header/Header';
 import Home from './components/contents/home/Home';
@@ -13,6 +12,7 @@ import EditProfile from './components/contents/profile/EditProfile';
 import MyFolders from './components/contents/folder/MyFolders';
 import AllFolders from './components/contents/folder/AllFolders';
 import CreateFolder from './components/contents/folder/CreateFolder';
+import Folder from './components/contents/folder/Folder';
 import PrivateRoute from './components/routing/PrivateRoute';
 // Redux
 import { Provider } from 'react-redux';
@@ -46,6 +46,7 @@ const App = () => {
             <PrivateRoute exact path='/myfolders' component={MyFolders}/>
             <PrivateRoute exact path='/allfolders' component={AllFolders}/>
             <PrivateRoute exact path='/create-folder' component={CreateFolder}/>
+            <PrivateRoute exact path='/folder/:id' component={Folder}/>
           </Switch>
         </Container>
       </Router>

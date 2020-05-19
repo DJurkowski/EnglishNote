@@ -10,8 +10,7 @@ const AllFolders = ({ getFolders, folder: {folder, loading} }) => {
 
     useEffect(()=> {
         getFolders();
-        // eslint-disable-next-line 
-    }, []);
+    }, [getFolders]);
 
     const folders_array = folder && folder.map(item => (
         <div key={item._id} className={styles.box}>

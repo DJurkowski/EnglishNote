@@ -13,17 +13,16 @@ const MyFolders = ({ getMyFolders, deleteFolder, folder: {folder, loading} }) =>
 
     useEffect(()=> {
         getMyFolders();
-        // eslint-disable-next-line
-    }, [refreshKey]);
+    }, [getMyFolders, refreshKey]);
 
     const handleDeleteButton = (id) => {
         deleteFolder(id)
-        .then((profile) =>{
+        .then((profile) => {
             setRefreshKey(oldKey => oldKey + 1 );
         });
     };
 
-    const folders_array = folder && folder.map(item => (
+    const folders_array = folder && folder.length > 0 && folder.map(item => (
         item &&
         <div key={item._id} className={styles.box}>
             <div className={styles.content_item_delete} onClick={() => handleDeleteButton(item._id)}><i className="fas fa-trash-alt fa-2x"></i></div>
@@ -36,7 +35,7 @@ const MyFolders = ({ getMyFolders, deleteFolder, folder: {folder, loading} }) =>
     return (
         <div className={styles.wrapper}>
             <div className={styles.content}>
-                {loading && folder === null ? (<Spinner />): (folders_array)}
+                {loading || folder === null ? (<Spinner />): (folders_array)}
             </div>
         </div>
     );

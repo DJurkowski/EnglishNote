@@ -1,0 +1,40 @@
+@import '../../../App.module.scss';
+
+.card {
+    border: 5px solid $white;
+    border-radius: 20px;
+    box-shadow: 0 0 5px 2px rgba(0, 0, 0, .3);
+    margin: 10px 20px 10px 20px;
+    transform-style: preserve-3d;
+    height: 200px;
+    width: 250px;
+    cursor: pointer;
+    transition: 150ms;
+    transform: rotateY(var(--rotate-y, 0)) translateY(var(--translate-y, 0));
+
+    text-align: center;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+
+    &:hover {
+        --translate-y: -2px;
+        box-shadow: 0 0 5px 2px rgba(0, 0, 0, .7);
+    }
+}
+
+.front, .back {
+    position: absolute;
+    backface-visibility: hidden;
+}
+
+.back {
+    transform: rotateY(180deg);
+}
+
+.flip {
+    --rotate-y: 180deg;
+}
