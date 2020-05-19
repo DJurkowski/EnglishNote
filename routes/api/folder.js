@@ -124,6 +124,39 @@ router.post('/', [
         }
 });
 
+// @route   DELETE api/folder/:id
+// @desc    Delete folder
+// @access  Private
+router.delete('/:folder_id', auth, async (req, res) =>{
+
+    try{
+        const profile = await Profile.findOne({ user: req.user.id });
+        
+        // Get remove index
+        const removeIndex = profile.folders
+        .map(item => item.id)
+        .indexOf(req.params.folder_id);
+
+       
+        if(removeIndex === -1){
+            return res.status(404).json({ errors: [{msg: 'Do not have authorization to make this action'}]});
+        }
+
+        profile.folders.splice(removeIndex, 1);
+
+        await profile.save();
+
+        await Folder.findByIdAndRemove({_id: req.params.folder_id});
+
+        res.json(profile);
+
+    }catch(err){
+        console.error(err.message);
+        res.status(500).send('Server Error');
+    }
+});
+
+
 // @route   PUT api/folder/:folder_id/word
 // @desc    Create and add new word to folder
 // @access  Private

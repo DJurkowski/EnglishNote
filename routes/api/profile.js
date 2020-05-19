@@ -163,33 +163,6 @@ router.delete('/', auth, async (req, res) => {
     }
 });
 
-// @route   DELETE api/profile/folder/:folder_id
-// @desc    Delete folder
-// @access  Private
-router.delete('/folder/:folder_id', auth, async (req, res) =>{
-
-    try{
-
-        const profile = await Profile.findOne({ user: req.user.id });
-        
-        // Get remove index
-        const removeIndex = profile.folders
-        .map(item => item.id)
-        .indexOf(req.params.folder_id);
-
-        profile.folders.splice(removeIndex, 1);
-
-        await profile.save();
-
-        await Folder.findByIdAndRemove({_id: req.params.folder_id});
-
-        res.json(profile);
-    }catch(err){
-        console.error(err.message);
-        res.status(500).send('Server Error');
-    }
-
-});
 
 // @route   Get api/profile/github/:username
 // @desc    Get user repos from Github

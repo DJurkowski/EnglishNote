@@ -1,7 +1,7 @@
 import axios from 'axios';
 import { setAlert } from './alert';
 
-import { ADD_FOLDER, FOLDER_ERROR, GET_ALL_FOLDERS, GET_MY_FOLDERS } from './types';
+import { ADD_FOLDER, FOLDER_ERROR, GET_ALL_FOLDERS, GET_MY_FOLDERS, DELETE_FOLDER } from './types';
 
 // Add folder
 export const addFolder = (formData, history) => async dispatch => {
@@ -87,4 +87,29 @@ export const getMyFolders = () => async dispatch => {
             payload: { msg: err.response.statusText, status: err.response.status }
         });
     }
+};
+
+// Delete folder
+export const deleteFolder = id => async dispatch => {
+
+    if(window.confirm('Are you sure, you want to delete this folder?')) {
+        try {
+            const res = await axios.delete(`/api/folder/${id}`);
+    
+            dispatch({
+                type: DELETE_FOLDER,
+                payload: res.data
+            });
+    
+            dispatch(setAlert('Folder removed', 'success'));
+    
+        } catch (err) {
+            dispatch({
+                type: FOLDER_ERROR,
+                payload: { msg: err.response.statusText, status: err.response.status }
+            });
+            
+        }
+    }
+    
 };
