@@ -36,7 +36,7 @@ const Navbar = ({navbarState, handleNavbar, auth: {isAuthenticated, loading}, lo
                     <ul className={styles.navLinkStart}>
                         <Link className={styles.logo} to='/'><Brand /></Link>
                         <div style={{marginLeft: 30 + 'px'}} className={styles.navbarItem}>about</div>
-                        <div style={{marginLeft: 30 + 'px'}} className={styles.navbarItem}>folder</div>
+                        <Link style={{marginLeft: 30 + 'px'}} className={styles.navbarItem} to='/profiles'>profiles</Link>
                     </ul>
                     <ul className={styles.navLinkEnd}>
                         {(!loading && isAuthenticated) ? authLinks : guestLinks}
