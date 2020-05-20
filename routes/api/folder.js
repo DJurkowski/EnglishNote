@@ -7,7 +7,7 @@ const Folder = require('../../models/Folder');
 
 function handleWord({polishword, englishword, synonyms}) {
 
-    if(synonyms) synonyms = synonyms.split('/').map(word => word.trim());
+    if(synonyms) synonyms = synonyms.split(',').map(word => word.trim());
     else synonyms = "";
 
     return {polishword, englishword, synonyms};
@@ -182,6 +182,61 @@ router.put('/:folder_id/word', auth, async (req, res) => {
     }
 });
 
+// @route   PUT api/folder/:folder_id/words
+// @desc    Add new words to folder
+// @access  Private
+router.put('/:folder_id/words', auth, async (req, res) => {
+    try {
+        
+        const isWords = req.body.words;
+
+        const folder = await Folder.findById({ _id: req.params.folder_id });
+
+        if(isWords && isWords.length > 0 ) {
+    
+            isWords.forEach(word => {
+                
+                folder.words.push(handleWord(word));
+            });
+
+            await folder.save();
+
+            res.json(folder);
+        }
+
+        res.json(folder);
+
+    } catch (err) {
+        console.error(err.message);
+        res.status(500).send('Server Error');
+    }
+});
+
+// @route   PUT api/folder/:folder_id
+// @desc    Update folder
+// @access  Private
+router.put('/:folder_id', auth, async (req, res) => {
+    try {
+
+        const {
+            name,
+            words
+        } = req.body;
+
+    
+        const folder = await Folder.findOneAndUpdate(
+            { _id: req.params.folder_id }, 
+            { $set: {name, words}},
+            { new: true });
+
+            return res.json(folder);
+        
+   
+    } catch (err) {
+        console.error(err.message);
+        res.status(500).send('Server Error');
+    }
+});
 // @route   DELETE api/folder/:folder_id/word/:word_id
 // @desc    Delete word
 // @access  Private

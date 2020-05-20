@@ -2,7 +2,7 @@ import axios from 'axios';
 import { setAlert } from './alert';
 
 import { ADD_FOLDER, FOLDER_ERROR, GET_ALL_FOLDERS, GET_MY_FOLDERS, 
-    DELETE_FOLDER, GET_FOLDER } from './types';
+    DELETE_FOLDER, GET_FOLDER, EDIT_FOLDER } from './types';
 
 // Add folder
 export const addFolder = (formData, history) => async dispatch => {
@@ -132,5 +132,39 @@ export const deleteFolder = id => async dispatch => {
             
         }
     }
-    
+};
+// Edit folder
+export const editFolder = (id ,formData, words, history) => async dispatch => {
+    try {
+        const config = {
+            headers: {
+                'Content-Type': 'application/json'
+            }
+        };
+
+        await axios.put(`/api/folder/${id}`, formData, config)
+        const res = await axios.put(`/api/folder/${id}/words`, words, config);
+
+
+        dispatch({
+            type: EDIT_FOLDER,
+            payload: res.data
+        });
+
+        dispatch(setAlert('Folder edited', 'success'))
+        history.push('/myfolders');
+
+    } catch (err) {
+
+        const errors = err.response.data.errors;
+
+        if(errors) {
+            errors.forEach(error => dispatch(setAlert(error.msg, 'danger')));
+        }
+
+        dispatch({
+            type: FOLDER_ERROR,
+            payload: { msg: err.response.statusText, status: err.response.status }
+        });
+    }
 };

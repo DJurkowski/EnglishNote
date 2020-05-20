@@ -25,9 +25,10 @@ const MyFolders = ({ getMyFolders, deleteFolder, folder: {folder, loading} }) =>
     const folders_array = folder && folder.length > 0 && folder.map(item => (
         item &&
         <div key={item._id} className={styles.box}>
-            <div className={styles.content_item_delete} onClick={() => handleDeleteButton(item._id)}><i className="fas fa-trash-alt fa-2x"></i></div>
+            <div className={styles.content_item_edit}><Link className={styles.edit} title="Edit folder" to={`/folder/edit/${item._id}`}><i className="fas fa-edit fa-2x"></i></Link></div>
+            <div className={styles.content_item_delete} onClick={() => handleDeleteButton(item._id)} title="Delete folder" ><i className="fas fa-trash-alt fa-2x"></i></div>
             <div className={styles.content_item}><h2>Name: {item.name}</h2></div>
-            <div className={styles.content_item}><p >words number: {item.words.length}</p></div>
+            <div className={styles.content_item}><p>words number: {item.words.length}</p></div>
             <div className={styles.content_item}><Link className={styles.button} to={`/folder/${item._id}`}>View more</Link></div>
         </div>
     ));

@@ -13,6 +13,7 @@ import MyFolders from './components/contents/folder/MyFolders';
 import AllFolders from './components/contents/folder/AllFolders';
 import CreateFolder from './components/contents/folder/CreateFolder';
 import Folder from './components/contents/folder/Folder';
+import EditFolder from './components/contents/folder/EditFolder';
 import PrivateRoute from './components/routing/PrivateRoute';
 // Redux
 import { Provider } from 'react-redux';
@@ -47,6 +48,7 @@ const App = () => {
             <PrivateRoute exact path='/allfolders' component={AllFolders}/>
             <PrivateRoute exact path='/create-folder' component={CreateFolder}/>
             <PrivateRoute exact path='/folder/:id' component={Folder}/>
+            <PrivateRoute exact path='/folder/edit/:id' component={EditFolder}/>
           </Switch>
         </Container>
       </Router>

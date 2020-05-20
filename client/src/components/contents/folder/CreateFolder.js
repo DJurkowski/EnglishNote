@@ -110,7 +110,7 @@ const CreateFolder = ({ addFolder, history }) => {
                                         value={word.synonyms}
                                         onChange={e => handleOnChangeWord(e, word.id)}
                                     />
-                                    <small className={styles.form_group_item_small}>separate synonyms with '/' e.g word#1 / word#2</small>
+                                    <small className={styles.form_group_item_small}>separate synonyms with ',' e.g word#1 , word#2</small>
                                 </div>
                             </>
                         );

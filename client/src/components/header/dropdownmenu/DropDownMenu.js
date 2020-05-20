@@ -2,7 +2,6 @@ import React, {useState, useEffect, useRef } from 'react';
 import { Link } from 'react-router-dom';
 import styles from '../navbar/Navbar.module.scss';
 
-
 const DropDownMenu = () => {
 
     const node = useRef();
