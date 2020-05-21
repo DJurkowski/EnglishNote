@@ -1,0 +1,17 @@
+@import '../../../App.module.scss';
+.wrapper {
+    display: flex;
+    justify-content: center;
+
+    font-size: 18px;
+}
+
+.content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.content_header {
+    text-align: center;
+}

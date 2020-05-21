@@ -1,0 +1,120 @@
+@import '../../../App.module.scss';
+
+.box {
+    border: 5px solid $white;
+    border-radius: 20px;
+    margin: 10px 20px 10px 20px;
+    padding: 20px; 
+
+
+    display: grid;
+    grid-row-gap: 10px;
+    grid-column-gap: 20px; 
+    grid-template-columns: 1fr 1fr 1fr;
+}
+
+.box_item:nth-child(1) {
+    text-align: center;
+    justify-self: start;
+    grid-column: 1;
+    grid-row: 1;
+}
+
+.box_item:nth-child(2) {
+    grid-column: 2 / 4;
+    grid-row: 1;
+
+    display: grid;
+    grid-gap: 10px;
+    grid-template-columns: 1fr;
+}
+
+.box_item_img {
+    border-radius: 50%;
+}
+
+.box_item_date {
+    justify-self: end;
+}
+
+.box_item_text {
+    border: 2px solid $white;
+    border-radius: 20px;
+
+    padding: 0 5px 5px 5px;
+}
+
+.box_item_likes_button {
+    background: none;
+    color: $white;
+    border: 2px solid $white;
+    border-radius: 20px;
+    margin-left: 10px;
+    position: relative;
+    cursor: pointer;
+    outline: none;
+    padding: 10px;
+
+    &:hover {
+        color: $light-primary;
+        border-color: $light-primary;
+        outline: none;
+    }
+}
+
+.button_badge {
+    background-color: $rose;
+    border-radius: 50%;
+    color: white;
+   
+    padding: 2px 6px;
+    font-size: 10px;
+    
+    position: absolute; /* Position the badge within the relatively positioned button */
+    top: -5px;
+    right: 0;
+}
+
+.box_item_links_comments_button {
+    background: none;
+    color: $white;
+    text-decoration: none;
+    font-family: $primary-font;
+    font-size: 15px;
+    border: 2px solid $white;
+    border-radius: 10px;
+    margin-top: -20px;
+    margin-left: 10px;
+    position: relative;
+    cursor: pointer;
+    outline: none;
+    padding: 10px;
+
+    &:hover {
+        color: $light-primary;
+        border-color: $light-primary;
+        outline: none;
+    }
+}
+
+.box_item_links_delete {
+    background: none;
+    color: $white;
+    text-decoration: none;
+    font-family: $primary-font;
+    font-size: 15px;
+    border: 2px solid $white;
+    border-radius: 10px;
+    margin-top: -20px;
+    margin-left: 10px;
+    position: relative;
+    cursor: pointer;
+    outline: none;
+    padding: 11px;
+
+    &:hover {
+        color: $rose;
+        border-color: $rose;
+        outline: none;
+    }
+}

@@ -15,6 +15,7 @@ const Navbar = ({navbarState, handleNavbar, auth: {isAuthenticated, loading}, lo
 
     const authLinks = (
         <>
+            <Link className={styles.navbarItem} to='/posts'>posts</Link>
             <DropDownMenu />
             <Link className={styles.navbarItem} to='/dashboard'>dashboard</Link>
             <Link onClick={logout} className={styles.special} to='/'>logout</Link>

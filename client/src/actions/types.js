@@ -20,3 +20,5 @@ export const GET_ALL_FOLDERS = 'GET_ALL_FOLDERS';
 export const GET_MY_FOLDERS = 'GET_MY_FOLDERS';
 export const GET_FOLDER = 'GET_FOLDER';
 export const GET_REPOS = 'GET_REPOS';
+export const GET_POSTS = 'GET_POSTS';
+export const POST_ERROR = 'POST_ERROR';
