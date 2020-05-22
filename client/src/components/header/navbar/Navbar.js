@@ -24,8 +24,8 @@ const Navbar = ({navbarState, handleNavbar, auth: {isAuthenticated, loading}, lo
 
     const guestLinks = (
         <>
-            <Link className={styles.navbarItem} to='/login'>login</Link>
-            <Link className={styles.special} to='/register'>register</Link>
+            <Link className={styles.navbarItem} to='/register'>register</Link>
+            <Link className={styles.special} to='/login'>login</Link>
         </>
     );
     
@@ -36,7 +36,6 @@ const Navbar = ({navbarState, handleNavbar, auth: {isAuthenticated, loading}, lo
                     <Link className={styles.minlogo} to='/'><Brand /></Link>
                     <ul className={styles.navLinkStart}>
                         <Link className={styles.logo} to='/'><Brand /></Link>
-                        <div style={{marginLeft: 30 + 'px'}} className={styles.navbarItem}>about</div>
                         <Link style={{marginLeft: 30 + 'px'}} className={styles.navbarItem} to='/profiles'>profiles</Link>
                     </ul>
                     <ul className={styles.navLinkEnd}>
