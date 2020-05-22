@@ -34,7 +34,7 @@ const CollapseMenu = ({ navbarState, handleNavbar, auth: { isAuthenticated, load
         </>
     );
     
-    if(navbarState === true && width <= 769) {
+    if(navbarState === true && width <= 898) {
         return (
             
             <div className={styles.wrapper}>
