@@ -10,9 +10,10 @@ const AllFolders = ({ getFolders, folder: {folder, loading} }) => {
 
     useEffect(()=> {
         getFolders();
-    }, [getFolders]);
+    }, [getFolders, loading]);
 
     const folders_array = (folder && folder.length > 0) && folder.map(item => (
+        item &&
         <div key={item._id} className={styles.box}>
             <div className={styles.content_item}><h2>Name: {item.name}</h2></div>
             <div className={styles.content_item}><p >words number: {item.words.length}</p></div>
