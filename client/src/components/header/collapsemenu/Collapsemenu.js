@@ -11,6 +11,11 @@ const CollapseMenu = ({ navbarState, handleNavbar, auth: { isAuthenticated, load
    
     const {width} = useWindowDimensions();
 
+    const handleLogoutButton = () => {
+        handleNavbar(false);
+        logout();
+    };
+
     const authLinks = (
         <>
             <li><Link onClick={()=> handleNavbar(false)} className={styles.navbarItem} to='/posts'>posts</Link></li>
@@ -18,7 +23,7 @@ const CollapseMenu = ({ navbarState, handleNavbar, auth: { isAuthenticated, load
             <li><Link onClick={()=> handleNavbar(false)} className={styles.navbarItem} to='/allfolders'>all folders</Link></li>
             <li><Link onClick={()=> handleNavbar(false)} className={styles.navbarItem} to='/create-folder'>add folder</Link></li>
             <li><Link onClick={()=> handleNavbar(false)} className={styles.navbarItem} to='/dashboard'>dashboard</Link></li>
-            <li><Link onClick={()=> handleNavbar(false)} onClick={logout} className={styles.navbarItem} to='/'>logout</Link></li>
+            <li><Link onClick={handleLogoutButton} className={styles.navbarItem} to='/'>logout</Link></li>
         </>
     );
 
@@ -46,7 +51,7 @@ const CollapseMenu = ({ navbarState, handleNavbar, auth: { isAuthenticated, load
 
 CollapseMenu.propTypes = {
     auth: PropTypes.object.isRequired,
-    logout: PropTypes.object.isRequired
+    logout: PropTypes.func.isRequired
 };
 
 const mapStateToProps = state => ({
