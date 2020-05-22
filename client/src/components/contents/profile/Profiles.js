@@ -10,8 +10,7 @@ const Profiles = ({ getProfiles, profile: { profiles, loading }}) => {
 
     useEffect(()=> {
         getProfiles();
-        // eslint-disable-next-line
-    }, []);
+    }, [getProfiles, loading]);
 
     return loading || !profiles ? (<Spinner />) : (
         <div className={styles.wrapper}>

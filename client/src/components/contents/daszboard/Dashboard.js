@@ -11,8 +11,7 @@ const Dashboard = ({ getCurrentProfile, deleteUser, auth: {user}, profile: {prof
 
     useEffect(() => {
         getCurrentProfile();
-    // eslint-disable-next-line 
-    }, []);
+    }, [getCurrentProfile(), loading]);
 
     const handleDeleteButton = () => {
         deleteUser();
@@ -37,31 +36,16 @@ const Dashboard = ({ getCurrentProfile, deleteUser, auth: {user}, profile: {prof
             <div className={styles.box}><i className="fab fa-github"></i> {profile.githubusername}</div>
             <div className={styles.box}><i className="fas fa-globe"></i><a href={user.website} rel="noopener noreferrer" target="_blank"> website</a></div>
 
-            {(profile.social.linkedin !== '' ? 
-                <div className={styles.box}><i className="fab fa-linkedin-in"></i> {profile.social.linkedin}</div> 
-                // eslint-disable-next-line
-                : <div className={styles.box, styles.hide}></div>
-            )}
-            {((profile.social.youtube !== '')  ? 
-                <div className={styles.box}><i className="fab fa-youtube"></i> {profile.social.youtube}</div> 
-                // eslint-disable-next-line
-                : <div className={styles.box, styles.hide}></div>
-            )}
-            {(( profile.social.twitter !== '')? 
-                <div className={styles.box}><i className="fab fa-twitter"></i> {profile.social.twitter}</div> 
-                // eslint-disable-next-line
-                : <div className={styles.box, styles.hide}></div>
-            )}
-            {((profile.social.instagram !== '') ? 
-                <div className={styles.box}><i className="fab fa-instagram"></i> {profile.social.instagram}</div> 
-                // eslint-disable-next-line
-                : <div className={styles.box, styles.hide}></div>
-            )}
-            {((profile.social.facebook !== '')? 
-                <div className={styles.box}><i className="fab fa-facebook"></i> {profile.social.facebook}</div> 
-                // eslint-disable-next-line
-                : <div className={styles.box, styles.hide}></div>
-            )}
+            {profile.social.linkedin !== '' ? (<div className={styles.box}><i className="fab fa-linkedin-in"></i> {profile.social.linkedin}</div>) :(<div className={styles.box, styles.hide}></div>)
+            }
+            {profile.social.youtube !== '' ? (<div className={styles.box}><i className="fab fa-youtube"></i> {profile.social.youtube}</div>) : (<div className={styles.box, styles.hide}></div>)
+            }
+            { profile.social.twitter !== '' ? (<div className={styles.box}><i className="fab fa-twitter"></i> {profile.social.twitter}</div>) : (<div className={styles.box, styles.hide}></div>)
+            }
+            {profile.social.instagram !== '' ? (<div className={styles.box}><i className="fab fa-instagram"></i> {profile.social.instagram}</div>) : (<div className={styles.box, styles.hide}></div>)
+            }
+            {profile.social.facebook !== '' ? (<div className={styles.box}><i className="fab fa-facebook"></i> {profile.social.facebook}</div>) : (<div className={styles.box, styles.hide}></div>)
+            }
             
             <div className={styles.box}>Bio: {profile.bio}</div>
         </div>
@@ -69,7 +53,6 @@ const Dashboard = ({ getCurrentProfile, deleteUser, auth: {user}, profile: {prof
             <div className={styles.info}>
                 <p>You have not yet setup a profile, please add some info</p>
                 <Link style={{color: '#FF6F91',textDecoration: 'none'}} to='/create-profile'>Create profile</Link>
-
             </div>
         )
     );
