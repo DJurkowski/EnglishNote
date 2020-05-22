@@ -26,7 +26,7 @@
     color: $white;
     
 
-    @media (max-width: 768px){
+    @media (max-width: 898px){
         display: none;
     }
 
@@ -73,7 +73,7 @@
     margin: auto 0;
     text-decoration: none;
 
-    @media (min-width: 769px){
+    @media (min-width: 898px){
         display: none;
     }
 }
@@ -85,7 +85,7 @@
 .burgerWrapper {
     margin: auto 0;
 
-    @media (min-width: 769px){
+    @media (min-width: 898px){
         display: none;
     }
 }
