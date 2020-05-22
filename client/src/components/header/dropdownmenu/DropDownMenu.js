@@ -28,9 +28,9 @@ const DropDownMenu = () => {
             <button onClick={e => setOpen(!open)}  className={styles.button}>folders <i className="fa fa-caret-down"></i></button>
             {open &&
             <ul className={styles.dropdown_menu}>
-                <li><Link className={styles.dropdown_menu_item} to='/myfolders'>my folders</Link></li>
-                <li><Link className={styles.dropdown_menu_item} to='/allfolders'>all folders</Link></li>
-                <li><Link className={styles.dropdown_menu_item} to='/create-folder'>add folder</Link></li>
+                <li><Link onClick={()=> setOpen(false)} className={styles.dropdown_menu_item} to='/myfolders'>my folders</Link></li>
+                <li><Link onClick={()=> setOpen(false)} className={styles.dropdown_menu_item} to='/allfolders'>all folders</Link></li>
+                <li><Link onClick={()=> setOpen(false)} className={styles.dropdown_menu_item} to='/create-folder'>add folder</Link></li>
             </ul>
             }
         </div>
