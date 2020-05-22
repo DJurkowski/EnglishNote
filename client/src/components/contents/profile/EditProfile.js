@@ -39,7 +39,7 @@ const EditProfile = ({ profile: { profile, loading }, createProfile, getCurrentP
             youtube: loading || !profile.youtube ? '' : profile.youtube,
             instagram: loading || !profile.instagram ? '' : profile.instagram
         });
-        // eslint-disable-next-line 
+        // eslint-disable-next-line
     }, [loading]);
 
     const {

@@ -5,12 +5,13 @@ import Spinner from '../spinner/Spinner';
 import PostItem from './PostItem';
 import { getPosts } from '../../../actions/post';
 import styles from './Posts.module.scss';
+import PostForm from './PostForm';
 
 const Posts = ({ getPosts, post: { posts, loading }}) => {
 
     useEffect(()=> {
         getPosts();
-    }, [getPosts]);
+    }, [getPosts, loading ]);
 
     return loading ? <Spinner /> : (
         <div className={styles.wrapper}>
@@ -19,6 +20,7 @@ const Posts = ({ getPosts, post: { posts, loading }}) => {
                 <h2>Posts</h2>
                 <p>Welcome to the community</p>
             </div>
+                <PostForm />
                 {posts.map(post => (
                     // post.name
                     <PostItem key={post._id} post={post} />

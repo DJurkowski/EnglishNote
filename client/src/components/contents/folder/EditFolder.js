@@ -21,13 +21,13 @@ const EditFolder = ({ getFolderById, editFolder, folder: { folder, loading}, his
 
         setFolderName(loading || !folder.name ? '' : folder.name);
 
-        setOldWords( loading || !folder.words ? [{_id: '',
+        setOldWords( !loading && folder.words ? folder.words : [{_id: '',
             polishword: '',
             englishword: '',
-            synonyms: []}] : folder.words
+            synonyms: []}]
         );
-    }, [getFolderById, match.params.id, loading, folder]);
 
+    }, [getFolderById, loading]);
 
     const handleDeleteOriginalWord = (id) => {
         setOldWords((word) => word.filter(x => x._id !== id));
@@ -44,7 +44,7 @@ const EditFolder = ({ getFolderById, editFolder, folder: { folder, loading}, his
     const handleOnChangeSynonyms = (e, id) => {
         
         const array = e.target.value.split(',').map(word => word.trim());
-        console.log(array);
+        
         setOldWords((word) => word.map(x => x._id === id ? {
             ...x,
             synonyms:  array
@@ -92,7 +92,7 @@ const EditFolder = ({ getFolderById, editFolder, folder: { folder, loading}, his
     };
 
 
-    return loading || folder === null ? (<Spinner />): (
+    return loading ? (<Spinner />): (
         <div className={styles.wrapper}>
                 <div className={styles.content}>
                     <div className={styles.form_header}>
@@ -141,14 +141,14 @@ const EditFolder = ({ getFolderById, editFolder, folder: { folder, loading}, his
                                             value={word.synonyms}
                                             onChange={e => handleOnChangeWord(e, word.id)}
                                         />
-                                        <small className={styles.form_group_item_small}>separate synonyms with '/' e.g word#1 / word#2</small>
+                                        <small className={styles.form_group_item_small}>separate synonyms with ',' e.g word#1 , word#2</small>
                                     </div>
                             );
                         })}
                         <div className={styles.form_group}>
                             <input type='button' onClick={addNewWordFn} className={styles.submit} value='add new word' />
                         </div>
-                        {folder && oldWords.map(word => {
+                        {oldWords.map(word => {
                             return (
                                     <div key={word._id} className={styles.form_group_item}>
                                         <div
@@ -184,7 +184,6 @@ const EditFolder = ({ getFolderById, editFolder, folder: { folder, loading}, his
                                             onChange={e => handleOnChangeSynonyms(e, word._id)}
                                         />
                                         <small className={styles.form_group_item_small}>separate synonyms with ',' e.g word#1 , word#2</small>
-                                        
                                     </div>
                             );
                         })}

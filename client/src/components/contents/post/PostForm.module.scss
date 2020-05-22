@@ -1,0 +1,87 @@
+@import '../../../App.module.scss';
+
+.wrapper {
+    display: flex;
+    justify-content: center;
+}
+
+.content {
+    border: 5px solid $white;
+    border-radius: 20px;
+    padding: 10px 20px 20px 20px;
+}
+
+.form_header {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    flex-wrap: nowrap;
+}
+
+.form_header_title {
+    margin: 0;
+    padding-bottom: 5px;
+}
+
+.submit {
+    float: right;
+
+    text-decoration: none;
+    background: none;
+    border: 2px solid $white;
+    border-radius: 15px;
+    margin: 10px 0 0 15px;
+    padding: 15px;
+    cursor: pointer;
+
+    color: $white;
+    // font-weight: bold;
+    font-family: $primary-font;
+    font-size: 15px;
+
+    &:hover {
+        color: $light-primary;
+        border-color: $light-primary;
+        outline: none;
+    }
+}
+
+.input {
+    
+    text-decoration: none;
+    border: 2px solid $white;
+    border-radius: 20px;
+    background: none;
+    padding: 15px;
+    margin: 10px 0 10px 0;
+
+    max-width: 640px;
+    min-width: 640px;
+    width: 640px;
+    height: 120px;
+    min-height: 120px;
+    max-height: 120px;
+
+
+
+    color: $white;
+    font-weight: bold;
+    font-size: 18px;
+
+    &:focus {
+        border-color: $light-primary;
+        outline: none;
+    }
+}
+
+.form_group {
+    display: grid;
+    grid-template-columns: 1fr;
+
+    
+
+    // align-items: center;
+    // flex-direction: column;
+    // justify-items: center;
+    // flex-wrap: nowrap;
+}
