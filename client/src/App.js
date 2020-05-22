@@ -15,6 +15,7 @@ import CreateFolder from './components/contents/folder/CreateFolder';
 import Folder from './components/contents/folder/Folder';
 import EditFolder from './components/contents/folder/EditFolder';
 import Profiles from './components/contents/profile/Profiles';
+import Profile from './components/contents/profile/Profile';
 import Posts from './components/contents/post/Posts';
 import PrivateRoute from './components/routing/PrivateRoute';
 // Redux
@@ -44,6 +45,7 @@ const App = () => {
             <Route exact path='/login' component={Login}/>
             <Route exact path='/register' component={Register}/>
             <Route exact path='/profiles' component={Profiles}/>
+            <Route exact path='/profile/:id' component={Profile}/>
             <PrivateRoute exact path='/dashboard' component={Dashboard}/>
             <PrivateRoute exact path='/create-profile' component={CreateProfile}/>
             <PrivateRoute exact path='/edit-profile' component={EditProfile}/>

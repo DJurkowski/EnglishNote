@@ -1,10 +1,10 @@
 import React, { useEffect, useState } from 'react';
 import PropTypes from 'prop-types';
+import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 import Spinner from '../spinner/Spinner';
 import { getProfiles } from '../../../actions/profile';
 import styles from './Profiles.module.scss';
-import ProfileItem from './ProfileItem';
 
 const Profiles = ({ getProfiles, profile: { profiles, loading }}) => {
 
@@ -42,14 +42,7 @@ const Profiles = ({ getProfiles, profile: { profiles, loading }}) => {
                         <div className={styles.content_item}><h2>Name: {profile.user.name}</h2></div>
                         <div className={styles.content_item}><p>{profile.location && ("Location: " + profile.location)}</p></div>
                         <div className={styles.content_item}>
-                            <button 
-                            onClick={()=>handleisOpenButton(profile._id)}
-                            id={'button'+ profile._id}
-                            className={styles.button}>Show more
-                            </button>
-                        </div>
-                        <div id={profile._id} className={styles.content_item}>
-                                <ProfileItem profile={profile} />
+                            <Link className={styles.button} to={`/profile/${profile.user._id}`}>Show more</Link>
                         </div>
                         
                     </div>
