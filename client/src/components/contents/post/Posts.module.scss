@@ -39,3 +39,15 @@
         outline: none;
     }
 }
+
+.box {
+    border: 5px solid $white;
+    border-radius: 20px;
+    margin: 10px 20px 10px 20px;
+    padding: 20px; 
+
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}

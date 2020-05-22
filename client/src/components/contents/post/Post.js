@@ -7,13 +7,14 @@ import { getPost } from '../../../actions/post';
 import styles from './Posts.module.scss';
 import { Link } from 'react-router-dom';
 import CommentForm from './CommentForm';
+import CommentItem from './CommentItem';
 
 
 const Post = ({ getPost, post: { post, loading }, match }) => {
 
     useEffect(()=> {
         getPost(match.params.id);
-    }, [getPost]);
+    }, [getPost, match.params.id]);
 
     return loading || post === null ? <Spinner /> : (
         <div className={styles.wrapper}>
@@ -21,6 +22,14 @@ const Post = ({ getPost, post: { post, loading }, match }) => {
                 <Link to='/posts' className={styles.button}>Back</Link>
                 <PostItem post={post} showAction={false} />
                 <CommentForm postId={post._id}/>
+                {post.comments.length > 0 && (
+                    <div className={styles.box}>
+                        {post.comments.map(comment => (
+                            <CommentItem key={comment._id} comment={comment} postId={post._id} />
+                        ))}
+                    </div>
+                )}
+                
             </div>
         </div>
     )

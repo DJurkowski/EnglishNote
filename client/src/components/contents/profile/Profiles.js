@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect } from 'react';
 import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
@@ -7,22 +7,6 @@ import { getProfiles } from '../../../actions/profile';
 import styles from './Profiles.module.scss';
 
 const Profiles = ({ getProfiles, profile: { profiles, loading }}) => {
-
-    const [isOpen, setIsOpen] = useState(false);
-
-    const handleisOpenButton = (id) => {
-        const div = document.getElementById(id);
-        const button = document.getElementById('button' + id)
-        if(isOpen){
-            setIsOpen(!isOpen);
-            div.style.display = 'none';
-            button.textContent = 'Show more';
-        }else {
-            setIsOpen(!isOpen);
-            div.style.display = 'block';
-            button.textContent = 'Show less';
-        }
-    };
 
     useEffect(()=> {
         getProfiles();

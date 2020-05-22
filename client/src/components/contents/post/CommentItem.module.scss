@@ -1,0 +1,80 @@
+@import '../../../App.module.scss';
+
+.box_item {
+    position: relative;
+}
+
+.header {
+    @include reset_selector;
+}
+
+.box_item_avatar {
+
+    position: absolute;
+    top: 10px;
+    left: 0px;
+
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+}
+
+.avatar_img {
+    border: 2px solid $white;
+    border-radius: 50%;
+    height: 40px;
+    width: 40px;
+
+    &:hover {
+        border-color: $light-primary;
+    }
+}
+
+.name {
+    padding: 10px 0 0 5px;
+}
+
+.box_item_delete {
+    position: absolute;
+    top: 20px;
+    right: 10px;
+}
+
+.box_item_delete_button {
+    border: 2px solid $white;
+    border-radius: 50%;
+    padding: 8px;
+    background: none;
+    color: $white;
+
+    cursor: pointer;
+
+    &:hover {
+        border-color: $light-primary;
+        color: $rose;
+    }
+}
+
+.box_item_textarea {
+    color: $white;
+
+    text-decoration: none;
+    border: 2px solid $white;
+    border-radius: 20px;
+    background: none;
+    padding: 45px 10px 15px 10px;
+    margin: 10px 0 10px 0;
+
+    max-width: 640px;
+    min-width: 640px;
+    width: 640px;
+    height: 120px;
+    min-height: 120px;
+    max-height: 120px;
+
+    color: $white;
+    font-weight: bold;
+    font-size: 18px;
+
+    outline: none;
+}
