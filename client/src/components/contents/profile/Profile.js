@@ -63,7 +63,7 @@ const Profile = ({ getProfileById, profile: {profile, loading}, match}) => {
 
     return (
         <div className={styles.wrapper}>
-           {loading && profile === null ? (<Spinner />) : (content)} 
+            {loading && profile === null ? (<Spinner />) : (content)} 
         </div>
     );
 };
