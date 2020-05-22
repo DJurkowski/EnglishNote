@@ -1,28 +1,4 @@
 @import '../../../App.module.scss';
-
-.wrapper {
-    display: flex;
-    justify-content: center;
-}
-
-.content {
-    border: 5px solid $white;
-    border-radius: 20px;
-    padding: 10px 20px 20px 20px;
-}
-
-.form_header {
-    display: flex;
-    align-items: center;
-    flex-direction: column;
-    flex-wrap: nowrap;
-}
-
-.form_header_title {
-    margin: 0;
-    padding-bottom: 5px;
-}
-
 .submit {
     float: right;
 
