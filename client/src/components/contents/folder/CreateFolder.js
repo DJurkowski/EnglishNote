@@ -76,8 +76,7 @@ const CreateFolder = ({ addFolder, history }) => {
                     </div>
                     {words.map(word => {
                         return (
-                            <>
-                                <div key={word._id} className={styles.form_group_item}>
+                                <div key={word.id} className={styles.form_group_item}>
                                     <div
                                         className={styles.form_group_item_delete}
                                         onClick={() => handleDeleteWord(word.id)}
@@ -112,7 +111,6 @@ const CreateFolder = ({ addFolder, history }) => {
                                     />
                                     <small className={styles.form_group_item_small}>separate synonyms with ',' e.g word#1 , word#2</small>
                                 </div>
-                            </>
                         );
                     })}
                     <div className={styles.form_group}>
