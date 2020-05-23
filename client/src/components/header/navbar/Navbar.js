@@ -15,6 +15,7 @@ const Navbar = ({navbarState, handleNavbar, auth: {isAuthenticated, loading}, lo
 
     const authLinks = (
         <>
+            <Link className={styles.navbarItem} to='/profiles'>profiles</Link>
             <Link className={styles.navbarItem} to='/posts'>posts</Link>
             <DropDownMenu />
             <Link className={styles.navbarItem} to='/dashboard'>dashboard</Link>
@@ -36,7 +37,6 @@ const Navbar = ({navbarState, handleNavbar, auth: {isAuthenticated, loading}, lo
                     <Link className={styles.minlogo} to='/'><Brand /></Link>
                     <ul className={styles.navLinkStart}>
                         <Link className={styles.logo} to='/'><Brand /></Link>
-                        <Link style={{marginLeft: 30 + 'px'}} className={styles.navbarItem} to='/profiles'>profiles</Link>
                     </ul>
                     <ul className={styles.navLinkEnd}>
                         {(!loading && isAuthenticated) ? authLinks : guestLinks}
