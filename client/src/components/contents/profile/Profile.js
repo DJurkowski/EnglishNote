@@ -13,6 +13,8 @@ const Profile = ({ getProfileById, profile: {profile, loading}, match}) => {
         getProfileById(match.params.id);
     }, [loading]);
 
+    const website = 'www.google.com';
+
     const content = (
         profile &&
         (<div className={styles.content}>
@@ -27,7 +29,7 @@ const Profile = ({ getProfileById, profile: {profile, loading}, match}) => {
                 <p>Join date: <Moment format='DD/MM/YYYY'>{profile.date}</Moment></p>
             </div>
             <div className={styles.box}><i className="fab fa-github"></i> {profile.githubusername}</div>
-            <div className={styles.box}><i className="fas fa-globe"></i><a href={profile.user.website} rel="noopener noreferrer" target="_blank"> website</a></div>
+            <div className={styles.box}><i className="fas fa-globe"></i> {profile.website}</div>
 
             {(profile.social.linkedin !== '' ? 
                 <div className={styles.box}><i className="fab fa-linkedin-in"></i> {profile.social.linkedin}</div> 

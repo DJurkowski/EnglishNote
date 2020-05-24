@@ -34,8 +34,8 @@ const Dashboard = ({ getCurrentProfile, deleteUser, auth: {user}, profile: {prof
                 <button className={styles.button} onClick={handleDeleteButton}>delete account</button>
             </div>
             <div className={styles.box}><i className="fab fa-github"></i> {profile.githubusername}</div>
-            <div className={styles.box}><i className="fas fa-globe"></i><a href={user.website} rel="noopener noreferrer" target="_blank"> website</a></div>
-
+            <div className={styles.box}><i className="fas fa-globe"></i> {profile.website}</div>
+            
             {profile.social.linkedin !== '' ? (<div className={styles.box}><i className="fab fa-linkedin-in"></i> {profile.social.linkedin}</div>) :(<div className={styles.box, styles.hide}></div>)
             }
             {profile.social.youtube !== '' ? (<div className={styles.box}><i className="fab fa-youtube"></i> {profile.social.youtube}</div>) : (<div className={styles.box, styles.hide}></div>)
