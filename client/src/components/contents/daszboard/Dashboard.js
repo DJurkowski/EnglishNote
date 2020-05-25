@@ -22,7 +22,7 @@ const Dashboard = ({ getCurrentProfile, deleteUser, auth: {user}, profile: {prof
         (profile && user) ?
         (<div className={styles.content}>
             <div className={styles.box}>
-                <figure className={styles.img}>
+                <figure className={styles.figure} >
                     <img src={user.avatar} alt="Profile"/>
                 </figure>
                 <h2>Username: { user.name }</h2>

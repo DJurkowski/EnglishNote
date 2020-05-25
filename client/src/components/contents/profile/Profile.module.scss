@@ -13,16 +13,20 @@
     grid-template-columns: 1fr 1f;
     padding: 20px;
 
-    @media (max-width: 550px ){
+     @media (max-width: 620px ){
         display: flex;
         flex-direction: column;
+        align-items: center;
         flex-shrink: 1;
+        padding: 5px;
     }
 }
 
-.img {
+.figure {
+    @include reset-selector;
     text-align: center;
 }
+
 
 @mixin box_content {
     color: $white;
@@ -30,13 +34,17 @@
     border-radius: 20px;
     padding: 20px;
 
-    @media (max-width: 550px ){
-        margin-top: 5px;
-    }
+    @media (max-width: 620px ){
+        margin: 5px auto 0 auto;
+     }
 }
 
 .box {
     @include box_content;
+
+    @media (max-width: 620px ){
+        width: 80%;
+    }
 }
 
 .box:nth-child(1) {

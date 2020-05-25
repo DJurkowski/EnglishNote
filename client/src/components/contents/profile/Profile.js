@@ -19,7 +19,7 @@ const Profile = ({ getProfileById, profile: {profile, loading}, match}) => {
         profile &&
         (<div className={styles.content}>
             <div className={styles.box}>
-                <figure className={styles.img}>
+                <figure className={styles.figure}>
                     <img src={profile.user.avatar} alt="Profile"/>
                 </figure>
                 <h2>Username: { profile.user.name }</h2>
