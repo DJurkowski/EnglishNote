@@ -13,7 +13,31 @@ Application allows create profile with some user informations and create folders
 
 ## Installation
 
-How to run application after cloning and build. Command started sever and client application
+Intalling all dependencies for server.
+
+```
+npm install
+```
+
+Intalling all dependencies for client side. Before that make sure you are in the client folder ( /client )
+
+```
+npm install
+```
+
+Running server side with package nodemon
+
+```
+npm run server 
+```
+
+Running client side. Before that make sure you are in the client folder ( /client )
+
+```
+npm start 
+```
+
+How to run application after build. Command started sever and client application
 
 ```
 npm run dev
