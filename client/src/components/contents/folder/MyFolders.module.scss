@@ -24,6 +24,15 @@
     display: grid;
     grid-gap: 10px;
     grid-template-columns: 150px 150px;
+
+    @media (max-width: 420px ) {
+        margin: 10px;
+        padding: 10px;
+    }
+
+    @media (max-width: 380px) {
+        grid-template-columns: 100px 100px;
+    }
 }
 
 .content_item_edit {
@@ -92,5 +101,10 @@
         border-color: $white;
         background: $white;
         color: $pink;
+    }
+
+    @media (max-width: 380px) {
+        padding: 10px;
+        font-size: 12px;
     }
 }
