@@ -38,15 +38,19 @@
     min-height: 120px;
     max-height: 120px;
 
-
-
     color: $white;
     font-weight: bold;
     font-size: 18px;
 
+
     &:focus {
         border-color: $light-primary;
         outline: none;
+    }
+
+    @media (max-width: 660px) {
+        max-width: 250px;
+        min-width: 250px;
     }
 }
 

@@ -11,6 +11,12 @@
     grid-row-gap: 10px;
     grid-column-gap: 20px; 
     grid-template-columns: 1fr 1fr 1fr;
+
+    @media (max-width: 560px) {
+        display: flex;
+        flex-direction: column;
+        flex-wrap: nowrap;
+    }
 }
 
 .box_item:nth-child(1) {
@@ -42,6 +48,12 @@
     border-radius: 20px;
 
     padding: 0 5px 5px 5px;
+}
+
+.box_item_likes {
+    @media (max-width: 560px) {
+        margin: 10px 0;
+    }
 }
 
 .box_item_likes_button {

@@ -38,6 +38,10 @@
     position: absolute;
     top: 20px;
     right: 10px;
+
+    @media (max-width: 660px) {
+        top: 35px;
+    }
 }
 
 .box_item_delete_button {
@@ -77,4 +81,12 @@
     font-size: 18px;
 
     outline: none;
+    
+    
+
+    @media (max-width: 660px) {
+        margin: 20px 0 10px 0;
+        max-width: 250px;
+        min-width: 250px;
+    }
 }

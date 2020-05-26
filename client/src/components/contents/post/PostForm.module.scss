@@ -55,14 +55,12 @@
     padding: 15px;
     margin: 10px 0 10px 0;
 
-    max-width: 640px;
-    min-width: 640px;
-    width: 640px;
+    max-width: 620px;
+    min-width: 620px;
+    width: 80%;
     height: 120px;
     min-height: 120px;
     max-height: 120px;
-
-
 
     color: $white;
     font-weight: bold;
@@ -72,6 +70,12 @@
         border-color: $light-primary;
         outline: none;
     }
+
+    @media (max-width: 770px) {
+        max-width: 250px;
+        min-width: 250px;
+    } 
+
 }
 
 .form_group {
