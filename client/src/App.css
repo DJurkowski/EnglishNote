@@ -1,0 +1,25 @@
+@import url("https://fonts.googleapis.com/css?family=Montserrat:300,500,700");
+@import url('https://fonts.googleapis.com/css2?family=Pacifico&display=swap');
+
+body, #root {
+    font-family: 'Montserrat', sans-serif;
+    color: #fff;
+
+    background: rgba(98,64,153,.98);
+    background: linear-gradient(90deg, rgba(98,64,153,.98) 42%, rgba(208,85,170,1) 100%),
+                linear-gradient(to top, rgba(196, 147, 255, 1) 42%, rgba(249, 156, 178, 1) 100%);
+}
+
+::-webkit-scrollbar {
+    border: 2px solid #fff;
+    background: none;
+}
+
+::-webkit-scrollbar-thumb {
+    border-radius: 10px;
+    background-color: #C493FF; 
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: rgb(165, 93, 252); 
+  }
