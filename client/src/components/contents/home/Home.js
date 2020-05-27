@@ -1,26 +1,48 @@
 import React, { useState } from 'react';
 import styles from './Home.module.scss';
+import { connect } from 'react-redux';
+import PropTypes from 'prop-types';
 import cx from 'classnames';
 
-const Home = () => {
+const Home = ({auth: {isAuthenticated, loading, user}}) => {
 
     const [flip, setFlip] = useState(false);
 
     const frontpage = (
-        <>
-            <h2>Hello in English Note app</h2>
-            <p>Take a look and start learning with us</p>
-            <small>Tap the card!</small>
-        </>
+        !loading && isAuthenticated ? (
+            <>
+                <h2>Hello {user.name}</h2>
+                <p>Take a look and start learning with us</p>
+                <small>Tap the card!</small>
+            </>
+        ) : (
+            <>
+                <h2>Hello in English Note app</h2>
+                <p>Take a look and start learning with us</p>
+                <small>Tap the card!</small>
+            </>
+        )
+
     );
 
     const backpage = (
-        <>
-            <h2>You made it!</h2>
-            <p>See how easy it is</p>
-            <p>Go login and start learning new words</p>
-            <p>En(g)joy</p>
-        </>
+
+        !loading && isAuthenticated ? (
+            <>
+                <h2>You made it!</h2>
+                <p>See how easy it is</p>
+                <p>Go to the folders section and start learning</p>
+                <p>En(g)joy</p>
+            </>
+        ) : (
+            <>
+                <h2>You made it!</h2>
+                <p>See how easy it is</p>
+                <p>Go login and start learning new words</p>
+                <p>En(g)joy</p>
+            </>
+        )
+        
     );
 
     return (
@@ -40,4 +62,13 @@ const Home = () => {
     );
 };
 
-export default Home;
+Home.propTypes = {
+    auth: PropTypes.object.isRequired
+};
+
+const mapStateToProps = state => ({
+    auth: state.auth
+});
+
+
+export default connect(mapStateToProps, null)(Home);
