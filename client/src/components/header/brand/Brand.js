@@ -3,8 +3,8 @@ import styles from './Brand.module.scss';
 
 const Brand = () => (
     <>
-        <h2 className={styles.logo}>English Note</h2>
-        <h2 className={styles.minlogo}>E N</h2>
+        <h2 className={styles.logo} data-test='logo'>English Note</h2>
+        <h2 className={styles.minlogo} data-test='miniLogo'>E N</h2>
     </>
 );
 
