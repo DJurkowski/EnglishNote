@@ -9,7 +9,7 @@ const Home = ({auth: {isAuthenticated, loading, user}}) => {
     const [flip, setFlip] = useState(false);
 
     const frontpage = (
-        !loading && isAuthenticated ? (
+        !loading && isAuthenticated && user ? (
             <>
                 <h2>Hello {user.name}</h2>
                 <p>Take a look and start learning with us</p>
