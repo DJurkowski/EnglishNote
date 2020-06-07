@@ -24,10 +24,10 @@ const DropDownMenu = () => {
     
 
     return (
-        <div ref={node} className={styles.navbarItem}>
-            <button onClick={e => setOpen(!open)}  className={styles.button}>folders <i className="fa fa-caret-down"></i></button>
+        <div ref={node} className={styles.navbarItem} data-test='dropDownMenuComponent'>
+            <button onClick={e => setOpen(!open)} className={styles.button} data-test='button'>folders <i className="fa fa-caret-down"></i></button>
             {open &&
-            <ul className={styles.dropdown_menu}>
+            <ul className={styles.dropdown_menu} data-test='dropDownMenuList'>
                 <li><Link onClick={()=> setOpen(false)} className={styles.dropdown_menu_item} to='/myfolders'>my folders</Link></li>
                 <li><Link onClick={()=> setOpen(false)} className={styles.dropdown_menu_item} to='/allfolders'>all folders</Link></li>
                 <li><Link onClick={()=> setOpen(false)} className={styles.dropdown_menu_item} to='/create-folder'>add folder</Link></li>
