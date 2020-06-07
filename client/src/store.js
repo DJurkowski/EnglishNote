@@ -5,14 +5,13 @@ import rootReducer from './reducers'
 
 const initialState = {};
 
-const middleware = [thunk];
+export const middleware = [thunk];
 
-const createStoreWithMiddleware = composeWithDevTools(applyMiddleware(...middleware))(createStore);
+export const createStoreWithMiddleware = composeWithDevTools(applyMiddleware(...middleware))(createStore);
 
 // const store = createStore(rootReducer, 
 //     initialState, 
 //     composeWithDevTools(applyMiddleware(...middleware))
 // );
 
-const store = createStoreWithMiddleware(rootReducer, initialState);
-export default store;
+export const store = createStoreWithMiddleware(rootReducer, initialState);
