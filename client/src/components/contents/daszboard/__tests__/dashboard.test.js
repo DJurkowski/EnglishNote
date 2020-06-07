@@ -5,7 +5,7 @@ import { Provider } from 'react-redux';
 import axios from 'axios';
 
 import Dashboard from '../Dashboard';
-import store from '../../../../store';
+import { store } from '../../../../store';
 
 // jest.mock('axios');
 
