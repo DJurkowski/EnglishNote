@@ -46,9 +46,9 @@ const Home = ({auth: {isAuthenticated, loading, user}}) => {
     );
 
     return (
-        <div className={styles.wrapper}>
+        <div className={styles.wrapper} data-test='wrapper'>
             <div className={styles.content}>
-                <div onClick={()=> setFlip(!flip)} className={cx(styles.card, {[styles.flip]: flip})}>
+                <div onClick={()=> setFlip(!flip)} className={cx(styles.card, {[styles.flip]: flip})} data-test='card'>
                     
                     <div className={styles.front}>
                         {frontpage}
