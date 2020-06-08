@@ -1,6 +1,15 @@
 @import url("https://fonts.googleapis.com/css?family=Montserrat:300,500,700");
 @import url('https://fonts.googleapis.com/css2?family=Pacifico&display=swap');
 
+*, *::before, *::after{
+    box-sizing: border-box;
+}
+
+html, body {
+    margin: 0;
+    padding: 0;
+}
+
 body, #root {
     font-family: 'Montserrat', sans-serif;
     color: #fff;
