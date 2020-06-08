@@ -17,7 +17,7 @@ const FlashCard = ({word}) => {
 
     const backpage = (
         word.synonyms.length > 0 ?
-        <div className={styles.back}>
+        <div className={styles.back} data-test='back'>
             <h3>{word.polishword}</h3>
             <p>{word.synonyms.map(synonym => synonym + ' ' )}</p>
         </div>
@@ -26,8 +26,8 @@ const FlashCard = ({word}) => {
     );
 
     return (
-        <div id={'card' + word._id} onClick={handleFlipButton} className={styles.card}>
-             <div className={styles.front}><h3>{word.englishword}</h3></div>
+        <div id={'card' + word._id} onClick={handleFlipButton} className={styles.card} data-test='card'>
+             <div className={styles.front} data-test='front'><h3>{word.englishword}</h3></div>
              {backpage} 
         </div>
     );
