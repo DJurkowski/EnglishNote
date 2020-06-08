@@ -3,9 +3,9 @@ import styles from './NotFound.module.scss';
 
 const NotFound = () => {
     return (
-        <div className={styles.wrapper}>
-            <div className={styles.content}>
-                <div className={styles.box}>
+        <div className={styles.wrapper} data-test='wrapper'>
+            <div className={styles.content} data-test='content'>
+                <div className={styles.box} data-test='box'>
                     <h1><i class="fas fa-exclamation-circle"></i> Page Not Found</h1>
                     <p>Sorry for the issues</p>
                 </div>
