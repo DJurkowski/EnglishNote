@@ -11,6 +11,12 @@ Application allows create profile with some user informations and create folders
 * [Express](https://expressjs.com/) - Node.js web application framework
 * [MongoDB](https://www.mongodb.com/) - Database for modern apps
 
+## Testing
+
+* [Jest](https://jestjs.io/) - A delightful JavaScript Testing Framework with a focus on simplicity
+* [Enzyme](https://enzymejs.github.io/enzyme/) - A JavaScript Testing utility for React 
+* [Moxios](https://github.com/axios/moxios) - Mock axios requests for testing
+
 ## Installation
 
 Intalling all dependencies for server.
